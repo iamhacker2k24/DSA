@@ -20,8 +20,8 @@ public:
     }
     static void acceStatic()
     {
-        cout << total_customar << endl;
-        cout << total_balance << endl;
+        cout << " total_customar  "<< total_customar << endl;
+        cout << " total_balance   "<< total_balance << endl;
     }
     void deposit(int amount)
     {
@@ -59,7 +59,7 @@ int main()
     // customer::total_customar = 5;
     // A1.display();
     A3.withdraw(1000);
-    A3.display();
+    // A3.display();
     customer::acceStatic();
     return 0;
 }

@@ -28,6 +28,12 @@ public:
     {
         cout << name << "  " << balance << " " << roll << endl;
     }
+
+    //copy constructor 
+    constructor_1(constructor_1 &B){
+        name=B.name;
+    }
+
 };
 
 int main()
@@ -36,8 +42,10 @@ int main()
     constructor_1 a2("devika", 5, 51);
     // a1.name = "dev";D
     // cout << a1.name << "";
-    a1.display();
+    // a1.display();
     a2.display();
+    constructor_1 a4(a2); /// by default copy constructor presence in the class
+    a4.display();
 
     return 0;
 }

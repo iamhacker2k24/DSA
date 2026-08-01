@@ -1,31 +1,30 @@
 #include <iostream>
 using namespace std;
-// stack implemntaion
+
+// stack using arry
 class stack
 {
+
     int *arr;
-    int size;
     int top;
+    int size;
 
 public:
-    bool flag;
     stack(int s)
     {
-        size = s;
         top = -1;
         arr = new int[s];
-        flag = 1;
+        size = s;
     }
     void push(int value)
     {
         if (top == size - 1)
         {
-            cout << "stack overflow" << endl;
+            cout << "stack is overflow " << endl;
         }
         else
         {
             top++;
-            flag = 0;
             arr[top] = value;
         }
     }
@@ -33,23 +32,20 @@ public:
     {
         if (top == -1)
         {
-            cout << "stack underflow" << endl;
+            cout << "stack is under flow" << endl;
         }
         else
         {
-            cout << "stack deleted sussfully " << arr[top] << endl;
             top--;
-            if (top == -1)
-            {
-                flag = 1;
-            }
+            cout << "valu poped sussfully" << endl;
         }
     }
+    // peek is retun top value
     int peek()
     {
         if (top == -1)
         {
-            cout << "stack is empty " << endl;
+            cout << "stack is empty" << endl;
             return -1;
         }
         else
@@ -57,25 +53,34 @@ public:
             return arr[top];
         }
     }
-    bool IsEmpty()
+    bool isEmpty()
     {
-        return top == -1;
+        if (top == -1)
+        {
+            return false ;
+        }
+        return true;
     }
     int isSize()
     {
         return top + 1;
     }
 };
-
 int main()
 {
-    stack s(2);
+
+    stack s(3);
     s.push(-1);
-    // s.push(-2);
-    // s.push(3);
+    s.push(4);
+    s.push(-1);
+
     // s.pop();
-    cout << s.isSize() << endl;
-    cout << s.IsEmpty() << endl;
+    if (s.isEmpty())
+    {
+        cout << s.peek() << endl;
+    }
+
+    // cout << s.isSize() << endl;
 
     return 0;
 }
